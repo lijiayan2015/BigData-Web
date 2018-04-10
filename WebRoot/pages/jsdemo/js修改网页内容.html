@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+img {
+	width: 100px;
+	height: 100px;
+}
+</style>
+
+<script type="text/javascript">
+	function change() {
+		var img = document.getElementById("img");
+		//修改图片的内容 
+		img.src = '../../resource/imgs/dog2.jpg';
+		
+		//修改图片的样式
+		img.style.width='200px';
+		img.style.height= '200px';
+	}
+</script>
+</head>
+<body>
+	<img src='../../resource/imgs/dog1.jpg' id='img' />
+
+	<button id='change' onclick="change()">修改图片并放大</button>
+</body>
+</html>

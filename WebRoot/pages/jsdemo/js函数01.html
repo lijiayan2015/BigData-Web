@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function myFun(name,job){
+			alert(name+" the "+job);
+		}
+		
+		function muFun2(a,b){
+			return a * b;
+		}
+		
+		window.onload=function(){
+			document.getElementById("demo").innerHTML=muFun2(4,3);
+		}
+	</script>
+	
+	<button onclick="myFun('zhangsan', 'coder')">自我介绍</button>
+	
+	<p id = 'demo'></p>
+	
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var text='';
+		function msg(){
+			try{
+				alert("this fun id not define");
+			}catch(err){
+				text='本页有一个错误.'+'\n\n';
+				text+="错误描述:"+err.message+"\n\n";
+				text+="点击确定继续.\n\n";
+				alert(text);
+			}
+		}
+	</script>
+	
+	<button onclick="msg()">点击测试</button>
+</body>
+</html>

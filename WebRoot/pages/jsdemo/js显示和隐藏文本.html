@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload=function(){
+		var h1 = document.getElementsByTagName("h1")[0];
+		var showbtn = document.getElementById("1");
+		showbtn.onclick = function(){
+			h1.style.visibility='visible';
+		}
+		var hiddebtn = document.getElementById("2");
+		hiddebtn.onclick = function(){
+			h1.style.visibility='hidden';
+		}
+	}
+
+</script>
+</head>
+<body>
+	<h1>我是文本</h1>
+	<button id="1">显示文本</button>
+	<button id="2">隐藏文本</button>
+</body>
+</html>

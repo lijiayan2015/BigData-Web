@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	h1{
+		color: #000000;
+	}
+</style>
+
+<script type="text/javascript">
+	function mouseup(){
+		var hs = document.getElementsByTagName("h1");
+		var h1 = hs[0];
+		h1.style.color='blue';
+		h1.innerHTML='大爷,来玩玩啊';
+	}
+	function mousemove(){
+		var hs = document.getElementsByTagName("h1");
+		var h1 = hs[0];
+		h1.style.color='red';
+		h1.innerHTML='大爷,你老婆回来了';
+	}
+</script>
+</head>
+<body>
+	<h1 onmouseleave="mouseup()" onmousemove="mousemove()">鼠标上来看看</h1>
+</body>
+</html>
