@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function(){
+		var btndelete = document.getElementById("btndelete");
+		btndelete.onclick = function(){
+			var containner = document.getElementById("containner");
+			var  childs = containner.children;
+			for(var i = 0;i<childs.length;i++){
+				containner.removeChild(childs[i]);
+			}
+		}
+	}
+
+</script>
+</head>
+<body>
+	<div id="containner">
+		<p>这是div里面的一个段落</p>
+		<p>这是div里面的另一个段落</p>
+	</div>
+	
+	<button id="btndelete">删除上面的段落</button>
+</body>
+</html>

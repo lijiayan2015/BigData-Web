@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Shortcut Icon" href="../../resource/imgs/book.jpg" />
+<meta charset="UTF-8">
+<title>xxx书店</title>
+<link href="../../style/booklist.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//请求数据
+		$.get("http://localhost:8080/BigData-Web/booklist", function(data, status) {
+			//有数据成功返回
+			if (status == "success") {
+				var host = "http://localhost:8080/BigData-Web/pages/jsdemo/bookitem.html";
+				var json = $.parseJSON(data);
+				for(var i = 0;i<json.length;i++){
+					//1.创建一个div
+					var book = document.createElement("div");
+					book.className="book";
+					//创建一个ul
+					var ul = document.createElement("ul");
+					//创建一个 id 和书名
+					var li_bookname = document.createElement("li");
+					//创建一个a标签
+					var a = document.createElement("a");
+					a.setAttribute("href", host+"?id="+json[i].id);
+					a.innerHTML = json[i].bookname;
+					li_bookname.appendChild(a);
+					//作者
+					var li_author = document.createElement("li");
+					li_author.className="author";
+					li_author.innerHTML = "作者:"+json[i].author;
+					
+					//简述
+					var li_des = document.createElement("li");
+					var pre_des = document.createElement("pre");
+					pre_des.innerHTML = "简述:"+json[i].des;
+					li_des.appendChild(pre_des);
+					//info
+					var li_info = document.createElement("li");
+					var pre_info = document.createElement("pre");
+					pre_info.innerHTML = "概述:"+json[i].info;
+					li_info.appendChild(pre_info);
+					
+					ul.appendChild(li_bookname);
+					ul.appendChild(li_author);
+					ul.appendChild(li_des);
+					ul.appendChild(li_info);
+					book.appendChild(ul);
+					
+					$("#books").append(book);
+				}
+			}
+		})
+	})
+</script>
+</head>
+<body>
+	<h1>欢迎来到XXX书店</h1>
+	<a href="http://localhost:8080/BigData-Web/pages/jsdemo/carlist.html">查看购物车</a>
+	<div id='books'>
+	</div>
+</body>
+</html>

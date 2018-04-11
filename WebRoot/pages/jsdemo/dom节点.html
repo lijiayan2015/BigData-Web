@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function(){
+	
+		var containner = document.getElementById("div");
+		var p = document.createElement("p");
+		var txt = document.createTextNode("这是我动态增加的内容");
+		p.appendChild(txt);
+		containner.appendChild(p);
+	}
+</script>
+</head>
+<body>
+	<p>这是一个段落</p>
+	<p>这是另外一个段落</p>
+	<div id='div'></div>
+</body>
+</html>

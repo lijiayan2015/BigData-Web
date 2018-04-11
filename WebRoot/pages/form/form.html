@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>注册界面</title>
+</head>
+<body>
+	<!-- action:跟的是提交的服务器的地址
+	method:提交的方式  get,post    默认是get
+	比较get,post
+	get方式数据会直接显示在网址上,post不会
+	get方式的数据在传输的时候会被放在请求行内,post放在请求体内
+	get方式适合传输不敏感,数据量较小的数据,post适合传输敏感,数据量较大的数据
+	post方式在服务器端进行中文处理的时候使用setCharacterEncoding()
+	get需要使用再编码再解码
+	
+	action:这里直接写虚拟目录
+	 -->
+
+	<form action="http://localhost:8080/BigData-Web/req03" method="get">
+		姓名:<input type="text" name="user" /><br /> 
+		密码:<input type="password" name="pwd"><br /> 
+		性别:<input type="radio" name="sex" checked="checked" value="男">男 <input type="radio" name="sex"
+			value="女" />女<br /> 爱好:<input type="checkbox" name="hobby"
+			value="java">java <input type="checkbox" name="hobby"
+			value="php">php <input type="checkbox" name="hobby"
+			value="html">html<br /> 国籍:<select name="area">
+			<option>中国</option>
+			<option>美国</option>
+			<option selected="selected">法国</option>
+			<option>英国</option>
+		</select><br /> 提交<input type="submit" value="提交"><br />
+	</form>
+</body>
+</html>

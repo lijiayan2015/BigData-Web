@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="Shortcut Icon" href="../../resource/imgs/book.jpg" />
+<title>购物车</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<link href="../../style/booklist.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.get("http://localhost:8080/BigData-Web/showcar", function(data, status) {
+			if (status == "success") {
+				var array = $.parseJSON(data);
+				if (array.length == 0) {
+					var h3 = document.createElement("h3");
+					h3.innerHTML = "空空如也";
+					$("#books").append(h3);
+				} else {
+					for (var i = 0; i < array.length; i++) {
+						var div_book = document.createElement("div");
+						div_book.className = 'book';
+						var ul_book = document.createElement("ul");
+						var li_bookname = document.createElement("li");
+						li_bookname.innerHTML = "书名:" + array[i].bookname;
+
+						var li_des = document.createElement("li");
+						li_des.innerHTML = "简述:" + array[i].des;
+
+						var li_info = document.createElement("li");
+						li_info.innerHTML = "概述:" + array[i].info;
+
+						ul_book.appendChild(li_bookname);
+						ul_book.appendChild(li_des);
+						ul_book.appendChild(li_info);
+						div_book.appendChild(ul_book);
+						div_book.setAttribute("id", ""+array[i].carid)
+						var btn_removecar = document.createElement("button");
+						btn_removecar.innerHTML = "从购物车中移除";
+						var id = array[i].id;
+						var carid = array[i].carid;
+						btn_removecar.onclick = function() {
+							$.get("http://localhost:8080/BigData-Web/remove?id=" + id + "&carid=" + carid, function(data, status) {
+								if (status == "success") {
+									var json = $.parseJSON(data);
+
+									if (json.result == 1) {
+										$("#"+carid).remove();
+									} else {
+										alert("移除失败");
+									}
+								}
+							})
+						};
+						div_book.appendChild(btn_removecar);
+						var book_hr = document.createElement("hr");
+						div_book.appendChild(book_hr);
+
+						$("#books").append(div_book);
+
+					}
+
+				}
+			}
+		});
+	});
+</script>
+</head>
+
+<body>
+	<h1>我的购物车列表</h1>
+
+	<a href="http://localhost:8080/BigData-Web/pages/jsdemo/bookstore.html">&lt;返回书城</a>
+	<div id='books'>
+	</div>
+</body>
+</html>

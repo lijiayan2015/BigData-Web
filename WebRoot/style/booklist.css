@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+h1 {
+	text-align: center;
+}
+
+.author{
+	font-size: 14px;
+	font-weight: bold;
+}
+.book ul{
+	list-style-type: none;
+	padding: 0;
+}
+
+.book ul li p{
+	margin: 0;
+	padding: 0;
+}

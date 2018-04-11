@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Shortcut Icon" href="../../resource/imgs/book.jpg" />
+<meta charset="UTF-8">
+<title>书籍详情</title>
+
+<script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	//请求数据
+	$(document).ready(function() {
+		var url = window.location.href;
+		var index = url.indexOf('?') + 1;
+		var id = url.substr(index).split("=")[1];
+		$.get("http://localhost:8080/BigData-Web/bookitem?id=" + id, function(data, status) {
+			if (status == "success") {
+				var book = $.parseJSON(data);
+				$("#bookname").text(book.bookname);
+				$("#des").text("简述:" + book.des);
+				$("#info").text("概述:" + book.info);
+				$(".book").css("visibility", "visible")
+			}
+		});
+
+		$("#btn_car").click(function() {
+			$.get("http://localhost:8080/BigData-Web/addcar?id=" + id, function(data, status) {
+				if (status == "success") {
+					var obj = $.parseJSON(data);
+					if (obj.result == 1) {
+						if (confirm("添加成功,查看购物车?")) {							
+							window.location.href = "http://localhost:8080/BigData-Web/pages/jsdemo/carlist.html";
+						} else {							
+						}
+					} else {
+						alert("加入购物车失败");
+					}
+				} else {
+					alert("加入购物车失败");
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<div class="book" style="visibility: hidden;">
+		<ul>
+			<li id="bookname"></li>
+			<li id="des"></li>
+			<li id="info"></li>
+		</ul>
+		<button style="margin-left: 20px;" id="btn_car">加入购物车</button>
+	</div>
+</body>
+</html>
