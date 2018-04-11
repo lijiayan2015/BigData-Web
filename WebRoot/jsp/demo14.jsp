@@ -11,7 +11,7 @@
 <body>
 	<%-- JSTL主要用来处理jsp中的逻辑:循环判断 
 		JSTL 都是要作用于4大域对象
-		使用的前提是先导入库
+		使用的前提是先导入库 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	--%>
 	
 	<%

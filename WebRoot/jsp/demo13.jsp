@@ -14,6 +14,7 @@
 	 %>
 	 
 	 姓名:${param.user}
+	 <%--用来获取checkbox中的值 --%>
 	 爱好:${paramValues.hobby[0]}
 </body>
 </html>

@@ -17,8 +17,8 @@
 		phones.add("huawei");
 		
 		Map<String,String>map = new HashMap<String,String>();
-		map.put("yi", "张三");//注意这里的key如果是01 ,则用EL表达式取值的会报错
-		map.put("er", "李四");
+		map.put("01", "张三");//注意这里的key如果是01 ,则用EL表达式中的map.01取值的会报错,用map['01']则可以
+		map.put("02", "李四");
 		
 		//先将他们存入域对象
 		pageContext.setAttribute("list", phones);
@@ -29,7 +29,7 @@
 	 ${list}
 	 ${list[0]}
 	 ${map}
-	 ${map.yi}
+	 ${map["01"]}
 	 
 </body>
 </html>
