@@ -3,12 +3,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="Shortcut Icon" href="../resource/imgs/book.jpg">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>注册</title>
 </head>
 <body>
-
-	<form action="${pageContext.request.contextPath }/regist">
+	<%
+		request.setCharacterEncoding("utf-8");
+	 %>
+	<form action="${pageContext.request.contextPath }/regist" method="post">
 		姓名:<input type="text" name="username"><br/>
 		密码:<input type="password" name="password"><br/>
 		邮箱:<input type="text" name="email"><br/>

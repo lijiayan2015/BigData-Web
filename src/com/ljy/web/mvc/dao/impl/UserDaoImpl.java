@@ -3,6 +3,7 @@ package com.ljy.web.mvc.dao.impl;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import com.ljy.web.mvc.dao.UserDao;
 import com.ljy.web.mvc.domain.User;
@@ -38,6 +39,35 @@ public class UserDaoImpl implements UserDao {
 			JDBCUtils.close(conn,stat);
 		}
 		return i;
+	}
+
+	@Override
+	public User findUser(String username, String password) {
+		Connection conn = null;
+		PreparedStatement stat = null;
+		User user = null;
+		ResultSet set = null;
+		try {
+			conn = JDBCUtils.getConnection();
+			String sql = "select * from t_user where username=? and password=?";
+			stat = conn.prepareStatement(sql);
+			stat.setString(1, username);
+			stat.setString(2, password);
+			set = stat.executeQuery();
+			if(set.next()){
+				user = new User();
+				user.setId(set.getInt("id"));
+				user.setAge(set.getInt("age"));
+				user.setBirthday(set.getDate("birthday"));
+				user.setEmail(set.getString("email"));
+				user.setUsername(username);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtils.close(conn,stat,set);
+		}
+		return user;
 	}
 
 }

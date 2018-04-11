@@ -50,12 +50,12 @@ public class RegistServlet extends HttpServlet{
 			}, java.util.Date.class);
 			BeanUtils.populate(user, req.getParameterMap());
 			//重新编码username
-			String username = user.getUsername();
-			if(username!=null){
+			//String username = user.getUsername();
+			/*if(username!=null){
 				byte[] bytes = username.getBytes("ISO8859-1");
 				username = new String(bytes,"UTF-8");
 				user.setUsername(username);
-			}
+			}*/
 			//访问service
 			UserService userService = new UserServiceImpl();
 			int result = userService.regiester(user);

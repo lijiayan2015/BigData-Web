@@ -6,4 +6,6 @@ public interface UserDao {
 
 	int regiest(User user);
 
+	User findUser(String username, String password);
+
 }

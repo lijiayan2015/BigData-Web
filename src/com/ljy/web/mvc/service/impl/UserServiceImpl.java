@@ -12,5 +12,9 @@ public class UserServiceImpl implements UserService {
 		
 		return dao.regiest(user);
 	}
+	@Override
+	public User findUser(String username, String password) {
+		return dao.findUser(username,password);
+	}
 
 }

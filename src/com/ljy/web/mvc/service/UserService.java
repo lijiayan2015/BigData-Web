@@ -6,4 +6,6 @@ public interface UserService {
 
 	int regiester(User user);
 
+	User findUser(String username, String password);
+
 }
