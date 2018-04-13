@@ -17,10 +17,11 @@ public class LogoutServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//清除登录信息
-		req.getSession().setAttribute("user", null);
-		req.getSession().setAttribute("status", null);
-		
-		resp.sendRedirect(req.getContextPath()+"/mvc/login.jsp");
+		//req.getSession().setAttribute("user", null);
+		//req.getSession().setAttribute("status", null);
+		req.getSession().removeAttribute("user");
+		req.getSession().removeAttribute("status");
+		resp.sendRedirect(req.getContextPath()+"/mvc/main.jsp");
 	}
 	
 	@Override

@@ -11,6 +11,8 @@
 	<%
 		request.setCharacterEncoding("utf-8");
 	 %>
+	 已有账号:点击<a href="${pageContext.request.contextPath }/mvc/login.jsp">登录</a>
+	 <br/>
 	<form action="${pageContext.request.contextPath }/regist" method="post">
 		姓名:<input type="text" name="username"><br/>
 		密码:<input type="password" name="password"><br/>

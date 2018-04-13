@@ -23,6 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <h1>功能列表</h1>
     <h3><a href='http://localhost:8080/BigData-Web/pages/jsdemo/bookstore.html'>XXX书城</a></h3>
-    <h3><a href='http://localhost:8080/BigData-Web/mvc/regist.jsp'>用户注册</a></h3>
+    <h3><a href='http://localhost:8080/BigData-Web/mvc/main.jsp'>用户注册</a></h3>
   </body>
 </html>
